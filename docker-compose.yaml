@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  produtos-db:
+    image: postgres:16.4
+    container_name: produtos_db
+    restart: always
+    tty: true
+    volumes:
+      - ./.docker/dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432

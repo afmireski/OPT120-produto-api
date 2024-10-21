@@ -1,3 +1,2 @@
 [tools]
 node = "20.18"
-pnpm = "latest"
