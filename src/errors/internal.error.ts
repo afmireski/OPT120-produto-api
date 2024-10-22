@@ -1,4 +1,4 @@
-import errors from './error-mapping/0-some.errors';
+import errors from './error-mapping/100-products.errors';
 
 export type InternalMessage = {
   httpCode: number;

@@ -7,6 +7,8 @@ export async function up(knex: Knex): Promise<void> {
         table.integer('price').unsigned().notNullable();
         table.integer('stock').unsigned().notNullable();
         table.timestamp('created_at').defaultTo(knex.fn.now());
+        table.timestamp('updated_at').defaultTo(knex.fn.now());
+        table.timestamp('deleted_at').nullable();
     });
 }
 
