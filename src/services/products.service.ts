@@ -1,4 +1,5 @@
 import { InternalError } from '../errors/internal.error';
+import { NewProductInput } from '../types/products/products.input';
 import { KnexService } from './knex.service';
 
 export const listAllProducts = () => {
@@ -31,4 +32,14 @@ export const findProductById = (id: number) => {
     .catch((e) => {
       throw new InternalError(102, e.message);
     });
+};
+
+export const createNewProduct = (input: NewProductInput) => {
+  const knex = KnexService.getInstance().knex;
+
+  const query = knex('products').insert(input);
+
+  return query.catch((e) => {
+    throw new InternalError(104, e.message);
+  });
 };
