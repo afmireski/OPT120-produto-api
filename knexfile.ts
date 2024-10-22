@@ -1,11 +1,11 @@
-import { config as envConfig } from 'dotenv';
+import { config } from 'dotenv';
 import type { Knex } from "knex";
 
-envConfig();
+config();
 
 // Update with your config settings.
 
-const config: { [key: string]: Knex.Config } = {
+const knexConfig: { [key: string]: Knex.Config } = {
   development: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
@@ -20,4 +20,4 @@ const config: { [key: string]: Knex.Config } = {
 
 };
 
-module.exports = config;
+module.exports = knexConfig;
