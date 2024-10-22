@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import {
   createNewProductHandler,
+  deleteProductHandler,
   findByIdHandler,
   listAllProductsHandler,
 } from '../controllers/products.controller';
@@ -13,3 +14,9 @@ router.get('/products', listAllProductsHandler, internalErrorsMiddleware);
 router.get('/products/:id', findByIdHandler, internalErrorsMiddleware);
 
 router.post('/products/new', createNewProductHandler, internalErrorsMiddleware);
+
+router.delete(
+  '/products/:id/remove',
+  deleteProductHandler,
+  internalErrorsMiddleware,
+);

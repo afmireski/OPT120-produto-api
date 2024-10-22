@@ -20,12 +20,12 @@ export class InternalError {
   }
 
   private errorHandler(): InternalMessage {
-    if (this.code === 0) {
+    if (this.code < 100) {
       return {
         httpCode: 500,
         message: 'Um erro inesperado ocorreu',
       };
-    } else if (this.code < 100) {
+    } else if (this.code < 200) {
       return errors[this.code];
     }
 

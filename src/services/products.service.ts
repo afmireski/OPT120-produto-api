@@ -43,3 +43,16 @@ export const createNewProduct = (input: NewProductInput) => {
     throw new InternalError(104, e.message);
   });
 };
+
+export const deleteProduct = (id: number) => {
+  const knex = KnexService.getInstance().knex;
+
+  const query = knex('products')
+    .update({ deleted_at: new Date() })
+    .where('id', '=', id)
+    .whereNull('deleted_at');
+
+  return query.catch((e) => {
+    throw new InternalError(105, e.message);
+  });
+};

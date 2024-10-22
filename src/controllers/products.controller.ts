@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { createNewProduct, findProductById, listAllProducts } from '../services/products.service';
+import { createNewProduct, deleteProduct, findProductById, listAllProducts } from '../services/products.service';
 
 export const listAllProductsHandler = (
   req: Request,
@@ -48,6 +48,24 @@ export const createNewProductHandler = (
   return createNewProduct(body)
     .then(() => {
       res.status(201).json();
+    })
+    .catch((e) => {
+      next(e);
+    });
+};
+
+export const deleteProductHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  const {
+    params: { id },
+  } = req;
+
+  return deleteProduct(Number(id))
+    .then(() => {
+      res.status(204).json();
     })
     .catch((e) => {
       next(e);

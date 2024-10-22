@@ -17,6 +17,10 @@ const errors: Record<number, InternalMessage> = {
     httpCode: 500,
     message: 'Houve uma falha ao criar o novo produto',
   },
+  105: {
+    httpCode: 500,
+    message: 'Houve uma falha ao excluir o produto',
+  },
 };
 
 export default errors;
