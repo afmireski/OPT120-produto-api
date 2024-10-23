@@ -1,10 +1,12 @@
 {
   "scripts": {
+    "build": "tsc",
     "start": "ts-node src/main.ts",
     "start:dev": "tsc && nodemon --exec",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "migrate": "knex migrate",
-    "migrate:rollback": "knex migrate:rollback"
+    "migrate": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
   },
   "dependencies": {
     "cors": "^2.8.5",
