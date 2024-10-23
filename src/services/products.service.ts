@@ -30,6 +30,10 @@ export const findProductById = (id: number) => {
       return response;
     })
     .catch((e) => {
+      if (e instanceof InternalError) {
+        throw e;
+      }
+
       throw new InternalError(102, e.message);
     });
 };
