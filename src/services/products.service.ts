@@ -1,5 +1,5 @@
 import { InternalError } from '../errors/internal.error';
-import { NewProductInput } from '../types/products/products.input';
+import { NewProductInput, UpdateProductInput } from '../types/products.types';
 import { KnexService } from './knex.service';
 
 export const listAllProducts = () => {
@@ -55,4 +55,20 @@ export const deleteProduct = (id: number) => {
   return query.catch((e) => {
     throw new InternalError(105, e.message);
   });
+};
+
+export const updateProduct = (id: number, input: UpdateProductInput) => {
+  const knex = KnexService.getInstance().knex;
+
+  const query = knex('products')
+    .update({ ...input, updated_at: new Date() })
+    .where('id', '=', id)
+    .whereNull('deleted_at')
+    .returning('*');
+
+  return query
+    .then(([response]) => response)
+    .catch((e) => {
+      throw new InternalError(106, e.message);
+    });
 };

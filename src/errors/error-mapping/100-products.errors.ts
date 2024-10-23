@@ -19,7 +19,11 @@ const errors: Record<number, InternalMessage> = {
   },
   105: {
     httpCode: 500,
-    message: 'Houve uma falha ao excluir o produto',
+    message: 'Houve uma falha ao tentar excluir o produto',
+  },
+  106: {
+    httpCode: 500,
+    message: 'Houve uma falha ao tentar atualizar o produto',
   },
 };
 

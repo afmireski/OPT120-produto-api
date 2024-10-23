@@ -4,6 +4,7 @@ import {
   deleteProductHandler,
   findByIdHandler,
   listAllProductsHandler,
+  updateProductHandler,
 } from '../controllers/products.controller';
 import { internalErrorsMiddleware } from '../middlewares/errors.middleware';
 
@@ -18,5 +19,11 @@ router.post('/products/new', createNewProductHandler, internalErrorsMiddleware);
 router.delete(
   '/products/:id/remove',
   deleteProductHandler,
+  internalErrorsMiddleware,
+);
+
+router.patch(
+  '/products/:id/update',
+  updateProductHandler,
   internalErrorsMiddleware,
 );
