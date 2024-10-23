@@ -71,6 +71,9 @@ DATABASE_URL=postgres://postgres:123456@localhost:5432/postgres?schema=public
 # Suba os containers
 docker-compose up -d
 
+## Caso tenha problemas com a pasta .docker na hora do build
+sudo rm -r .docker
+
 # Realize a migração do banco
 npm run migrate
 
