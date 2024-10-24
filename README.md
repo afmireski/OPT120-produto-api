@@ -48,7 +48,8 @@ npm run start:dev
 
 Caso não tenha o postgres instalado:
 ```bash
-docker run --name my-db -e POSTGRES_PASSWORD=123456 POSTGRES_USER=postgres POSTGRES_DB=postgres -d postgres:16.4 --expose 5432:5432
+docker run --name product-db -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=postgres -e POSTGRES_DB=postgres -d -p 5432:5432 postgres:16.4
+# Altere as portas e variáveis conforme lhe convir
 
 ```
 
