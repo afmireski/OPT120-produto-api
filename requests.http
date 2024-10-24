@@ -18,8 +18,9 @@ content-type: application/json
     "stock": 30
 }
 
-### Atualização de produto
-# Criação de produto
+### 
+
+# Atualização de produto
 PATCH  http://localhost:3004/products/1/update HTTP/1.1
 content-type: application/json
 
@@ -29,6 +30,7 @@ content-type: application/json
     "stock": 10
 }
 
-### Atualização de produto
-# Criação de produto
+###
+
+# Remoção de produto
 DELETE  http://localhost:3004/products/1/remove HTTP/1.1
