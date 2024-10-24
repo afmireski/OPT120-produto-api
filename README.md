@@ -12,19 +12,22 @@ git clone git@github.com:afmireski/OPT120-produto-api.git
 cd ./OPT120-produto-api
 
 # Prepare dois arquivos .env
-cp .env.example .env && cp .env.example .env.docker &&
+cp .env.example .env && cp .env.example .env.docker
 
 # Defina as variáveis de ambiente que desejar
 ```
 
 ## Local
 ```bash
-# Defina a versão do node
+#--(opcional)--
+# Defina a versão do node (opcional)
 ## Marca o .mise.toml como confiável
 mise trust
 
 ## Instala a versão do node
 mise install
+
+#--(opcional)--
 
 # Instale as dependências
 npm install
@@ -42,6 +45,12 @@ npm run start:dev
 ```
 
 - Instalar o [mise](https://mise.jdx.dev/getting-started.html)
+
+Caso não tenha o postgres instalado:
+```bash
+docker run --name my-db -e POSTGRES_PASSWORD=123456 POSTGRES_USER=postgres POSTGRES_DB=postgres -d postgres:16.4 --expose 5432:5432
+
+```
 
 ## Docker
 Defina as variáveis de ambiente do container:
