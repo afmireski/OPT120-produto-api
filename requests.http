@@ -1,0 +1,34 @@
+# Listagem de produtos
+GET http://localhost:3004/products HTTP/1.1
+
+###
+
+# Busca de produto por id
+GET http://localhost:3004/products/1 HTTP/1.1
+
+###
+
+# Criação de produto
+POST http://localhost:3004/products/new HTTP/1.1
+content-type: application/json
+
+{
+    "description": "Alface",
+    "price": 575,
+    "stock": 30
+}
+
+### Atualização de produto
+# Criação de produto
+PATCH  http://localhost:3004/products/1/update HTTP/1.1
+content-type: application/json
+
+{
+    "description": "Abacaxi",
+    "price": 825,
+    "stock": 10
+}
+
+### Atualização de produto
+# Criação de produto
+DELETE  http://localhost:3004/products/1/remove HTTP/1.1

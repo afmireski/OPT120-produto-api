@@ -95,4 +95,7 @@ npm run seed
 
 - **Mude as portas e hosts como preferir, essa é só a configuração padrão**
 
+# Rotas
+As rotas podem ser encontradas no arquivo [requests.http](./requests.http).
+
 
