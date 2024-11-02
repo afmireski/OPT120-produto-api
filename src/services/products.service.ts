@@ -8,7 +8,7 @@ export const listAllProducts = () => {
   const query = knex('products').select('*').whereNull('deleted_at');
 
   return query.catch((e) => {
-    throw new InternalError(102, e.message);
+    throw new InternalError(102, [e.message]);
   });
 };
 
@@ -34,7 +34,7 @@ export const findProductById = (id: number) => {
         throw e;
       }
 
-      throw new InternalError(102, e.message);
+      throw new InternalError(102, [e.message]);
     });
 };
 
@@ -44,7 +44,7 @@ export const createNewProduct = (input: NewProductInput) => {
   const query = knex('products').insert(input);
 
   return query.catch((e) => {
-    throw new InternalError(104, e.message);
+    throw new InternalError(104, [e.message]);
   });
 };
 
@@ -57,7 +57,7 @@ export const deleteProduct = (id: number) => {
     .whereNull('deleted_at');
 
   return query.catch((e) => {
-    throw new InternalError(105, e.message);
+    throw new InternalError(105, [e.message]);
   });
 };
 
@@ -73,6 +73,6 @@ export const updateProduct = (id: number, input: UpdateProductInput) => {
   return query
     .then(([response]) => response)
     .catch((e) => {
-      throw new InternalError(106, e.message);
+      throw new InternalError(106, [e.message]);
     });
 };
