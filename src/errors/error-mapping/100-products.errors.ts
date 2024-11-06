@@ -25,6 +25,10 @@ const errors: Record<number, InternalMessage> = {
     httpCode: 500,
     message: 'Houve uma falha ao tentar atualizar o produto',
   },
+  107: {
+    httpCode: 400,
+    message: 'Entrada inválida',
+  },
 };
 
 export default errors;
