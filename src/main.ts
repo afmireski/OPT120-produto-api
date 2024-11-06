@@ -8,7 +8,7 @@ async function main() {
   const app = express();
 
   const corsOptions = {
-    methods: 'GET, POST, PUT, DELETE',
+    methods: 'GET, POST, PUT, PATCH, DELETE',
     allowedHeaders: 'Content-Type, Accept',
     exposedHeaders: 'Content-Type, Accept',
     maxAge: 3600,
